@@ -25,7 +25,7 @@ class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
 			'date'   => '2011-11-24',
 			'name'   => 'Configurable Search Form Plugin',
 			'desc'   => 'Inserts a configurable search form in any page',
-			'url'    => '',
+			'url'    => 'http://www.dokuwiki.org/plugin:confsearch',
 		);
     }
  
