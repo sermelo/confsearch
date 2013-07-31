@@ -1,0 +1,7 @@
+base   confsearch
+author Sergio Merino
+email  sergio.merino@thecorpora.com
+date   2011-11-24
+name   Configurable Search Form Plugin
+desc   Inserts a configurable search form in any page
+url    http://www.dokuwiki.org/plugin:confsearch
