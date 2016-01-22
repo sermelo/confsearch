@@ -49,7 +49,7 @@ class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
 	return getNS(cleanID($id));
     }
     
-    function handle($match, $state, $pos, &$handler) {  
+    function handle($match, $state, $pos, Doku_Handler $handler) {  
     	return array($match, $state, $pos);
     }
     
@@ -83,7 +83,7 @@ class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
         return $replacedparams;
     }
     
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
  		
  		global $lang;
  		
