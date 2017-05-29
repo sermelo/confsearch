@@ -55,7 +55,7 @@ class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
     
     function buttonname($data) {
         $params=trim($data[0]," \{\}");
-        list($pluginname,$parameters,$button)=split(">",$params,3);
+        list($pluginname,$parameters,$button)=explode('>',$params,3);
         $replacedparams = str_replace(array(
                 '@NS@',
                 '@USER@',
@@ -71,7 +71,7 @@ class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
         
     function processparameters($data) {
         $params=trim($data[0]," \{\}");
-        list($pluginname,$parameters,$button)=split(">",$params,3);
+        list($pluginname,$parameters,$button)=explode('>',$params,3);
         $replacedparams = str_replace(array(
                 '@NS@',
                 '@USER@',
