@@ -103,9 +103,6 @@ class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
 			$renderer->doc .= '</div>'."\n";
 			return true;
 		}
-		else{
-			$renderer->doc .= 'Hola';
-		}
 		return false;
 	}
 }
