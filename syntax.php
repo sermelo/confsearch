@@ -17,43 +17,33 @@ require_once(DOKU_PLUGIN.'syntax.php');
  * need to inherit from this class
  */
 class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
- 
-	function getInfo(){
-		return array(
-			'author' => 'Sergio Merino',
-			'email'  => 'sergio.merino@thecorpora.com',
-			'date'   => '2011-11-24',
-			'name'   => 'Configurable Search Form Plugin',
-			'desc'   => 'Inserts a configurable search form in any page',
-			'url'    => 'http://www.dokuwiki.org/plugin:confsearch',
-		);
-    }
- 
-    function getType() { return 'substition'; }
-    function getSort() { return 138; }
 
-    function connectTo($mode) {
+    public function getType() { return 'substition'; }
+
+    public function getSort() { return 138; }
+
+    public function connectTo($mode) {
 		$this->Lexer->addSpecialPattern('\{confsearch[^\}]*\}',$mode,'plugin_confsearch');
     }
 
-    function getLastCrumb()
+    protected function getLastCrumb()
     {
-	$br = breadcrumbs();
-	$lastcrumb = '';
-	foreach ($br as $a=>$b) $lastcrumb=$a;
-	return $lastcrumb;
+	    $br = breadcrumbs();
+	    $lastcrumb = '';
+	    foreach ($br as $a=>$b) $lastcrumb=$a;
+	    return $lastcrumb;
     }
 
-    function getBaseNs($id)
+    public function getBaseNs($id)
     {
-	return getNS(cleanID($id));
+	    return getNS(cleanID($id));
     }
 
-    function handle($match, $state, $pos, Doku_Handler $handler) {
+    public function handle($match, $state, $pos, Doku_Handler $handler) {
     	return array($match, $state, $pos);
     }
 
-    function buttonname($data) {
+    protected function buttonname($data) {
         $params=trim($data[0]," \{\}");
         list($pluginname,$parameters,$button)=explode('>',$params,3);
         $replacedparams = str_replace(array(
@@ -69,7 +59,7 @@ class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
         return $replacedparams;
     }
 
-    function processparameters($data) {
+    protected function processparameters($data) {
         $params=trim($data[0]," \{\}");
         list($pluginname,$parameters,$button)=explode('>',$params,3);
         $replacedparams = str_replace(array(
@@ -83,7 +73,7 @@ class syntax_plugin_confsearch extends DokuWiki_Syntax_Plugin {
         return $replacedparams;
     }
 
-    function render($mode, Doku_Renderer $renderer, $data) {
+    public function render($mode, Doku_Renderer $renderer, $data) {
 
  		global $lang;
 
